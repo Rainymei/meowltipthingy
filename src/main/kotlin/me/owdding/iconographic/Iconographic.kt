@@ -8,6 +8,7 @@ import me.owdding.ktmodules.Module
 import me.owdding.lib.utils.MeowddingLogger
 import me.owdding.iconographic.TooltipInformation.Companion.toInformation
 import me.owdding.iconographic.config.Config
+import me.owdding.iconographic.config.categories.misc.MiscConfig
 import me.owdding.iconographic.generated.BuildInfo
 import me.owdding.iconographic.generated.IconographicApiDebug
 import me.owdding.iconographic.generated.IconographicModules
@@ -107,30 +108,51 @@ object Iconographic : ClientModInitializer, MeowddingLogger by MeowddingLogger.a
             this.guiHeight(),
             xo,
             yo,
-            totalWidth,
-            totalHeight
+            totalWidth + 10,
+            totalHeight + 10
         )
 
-        blitSprite(
-            RenderPipelines.GUI_TEXTURED,
-            id("background"),
-            x - 5,
-            y - 5,
-            totalWidth + 10,
-            totalHeight + 10,
-            ARGB.opaque(rarity.color)
-        )
+        if (Config.vanillaBackground) {
+            blitSprite(
+                RenderPipelines.GUI_TEXTURED,
+                Identifier.withDefaultNamespace("tooltip/background"),
+                x - 8,
+                y - 8,
+                totalWidth + 24,
+                totalHeight + 24,
+                -1
+            )
+            blitSprite(
+                RenderPipelines.GUI_TEXTURED,
+                Identifier.withDefaultNamespace("tooltip/frame"),
+                x - 8,
+                y - 8,
+                totalWidth + 24,
+                totalHeight + 24,
+                -1
+            )
+        } else {
+            blitSprite(
+                RenderPipelines.GUI_TEXTURED,
+                id("background"),
+                x,
+                y,
+                totalWidth + 10,
+                totalHeight + 10,
+                ARGB.opaque(rarity.color)
+            )
+        }
 
         var yOffset = 0
         for (line in entries) {
             when (line) {
                 is ExtractableTooltipLine -> {
-                    line.extract(this, totalWidth, x, y + yOffset)
+                    line.extract(this, totalWidth, x + 5, y + 5 + yOffset)
                 }
 
                 is ClientTooltipComponent -> {
-                    line.extractText(this, font, x, y)
-                    line.extractImage(font, x, y, totalWidth, line.getHeight(font), this)
+                    line.extractText(this, font, x + 5, y + 5 + yOffset)
+                    line.extractImage(font, x + 5, y + 5 + yOffset, totalWidth, line.getHeight(font), this)
                 }
             }
             yOffset += line.getHeight(font)

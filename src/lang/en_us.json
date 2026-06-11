@@ -15,6 +15,10 @@
         "@value": "Spinning Item",
         "desc": "Whether the item in the top left corner should spin."
       },
+      "vanillaBackground": {
+        "@value": "Vanilla Background",
+        "desc": "Use the vanilla tooltip background and frame instead of the custom one."
+      },
       "tags": {
         "@value": "Tag Config",
         "breakingPower": {

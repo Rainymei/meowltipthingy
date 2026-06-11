@@ -28,6 +28,7 @@ object Config : ConfigKt("iconographic/config"), AutoTranslated {
     @JvmStatic @get:JvmName("isEnabled")
     val enabled by autoBoolean(true)
     val spinny by autoBoolean(false)
+    val vanillaBackground by autoBoolean(false)
 
     override val patches: Map<Int, UnaryOperator<JsonObject>> = configPatches.withIndex().associate { (index, value) -> index to UnaryOperator(value) }
     override val version: Int = patches.size + 1
