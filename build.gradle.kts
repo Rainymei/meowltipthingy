@@ -10,7 +10,7 @@ plugins {
     idea
 }
 
-val archiveName = "tooltipthingy"
+val archiveName = "iconographic"
 
 group = "me.owdding"
 version = "1.0.0"
@@ -66,7 +66,7 @@ tasks.processResources {
         expand(replacements)
     }
     with(copySpec {
-        from(rootProject.file("src/lang")).include("*.json").into("assets/tooltipthingy/lang")
+        from(rootProject.file("src/lang")).include("*.json").into("assets/iconographic/lang")
     })
 
     filesMatching("**/*.kts") {
@@ -122,13 +122,13 @@ tasks.build {
 }
 
 autoMixins {
-    mixinPackage = "me.owdding.tooltipthingy.mixins"
-    projectName = "tooltipthingy"
+    mixinPackage = "me.owdding.iconographic.mixins"
+    projectName = "iconographic"
 }
 
 ksp {
-    arg("meowdding.project_name", "TooltipThingy")
-    arg("meowdding.package", "me.owdding.tooltipthingy.generated")
+    arg("meowdding.project_name", "Iconographic")
+    arg("meowdding.package", "me.owdding.iconographic.generated")
 }
 
 loom {
@@ -138,7 +138,7 @@ loom {
         vmArg("-Dfabric.modsFolder=" + '"' + rootProject.projectDir.resolve("run/${stonecutter.current.version.replace(".", "")}Mods").absolutePath + '"')
     }
 
-    accessWidenerPath = rootProject.file("src/main/resources/tooltipthingy.accesswidener")
+    accessWidenerPath = rootProject.file("src/main/resources/iconographic.accesswidener")
 }
 
 
@@ -160,7 +160,7 @@ tasks.generateBuildConfig {
 }
 
 buildConfig {
-    packageName("me.owdding.tooltipthingy.generated")
+    packageName("me.owdding.iconographic.generated")
     className("BuildInfo")
 
     buildConfigField("String", "VERSION", "\"${rootProject.version}\"")

@@ -5,7 +5,7 @@
     "allowTags": true,
     "objectAsKeys": true
   },
-  "tooltipthingy": {
+  "iconographic": {
     "config": {
       "enabled": {
         "@value": "Main toggle",

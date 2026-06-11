@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
-  "id": "tooltipthingy",
+  "id": "iconographic",
   "version": "${version}",
-  "name": "ToolTipThingy",
+  "name": "Iconographic",
   "description": "",
   "authors": [],
   "license": "",
   "icon": "",
   "mixins": [
-    "tooltipthingy.mixins.json"
+    "iconographic.mixins.json"
   ],
   "entrypoints": {
     "client": [
       {
-        "value": "me.owdding.tooltipthingy.TooltipThingy",
+        "value": "me.owdding.iconographic.Iconographic",
         "adapter": "kotlin"
       }
     ]
@@ -25,5 +25,5 @@
     "fabric-language-kotlin": ">=${fabric_lang_kotlin}",
     "skyblock-api": ">=${sbapi}"
   },
-  "accessWidener": "tooltipthingy.accesswidener"
+  "accessWidener": "iconographic.accesswidener"
 }

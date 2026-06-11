@@ -1,0 +1,48 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "chars": [
+        "abcdefghijklmnopqrstuvwxyz"
+      ],
+      "file": "iconographic:font/mc5.png",
+      "height": 5,
+      "ascent": 5
+    },
+    {
+      "type": "bitmap",
+      "chars": [
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      ],
+      "file": "iconographic:font/mc5.png",
+      "height": 5,
+      "ascent": 5
+    },
+    {
+      "type": "bitmap",
+      "chars": [
+        "1234567890./,"
+      ],
+      "file": "iconographic:font/mc5_nums.png",
+      "height": 5,
+      "ascent": 5
+    },
+    {
+      "type": "bitmap",
+      "chars": [
+        "·"
+      ],
+      "file": "iconographic:font/mc5_center_dot.png",
+      "height": 5,
+      "ascent": 5
+    },
+    {
+      "type": "space",
+      "advances": {
+        " ": 4,
+        "\u200c": 0,
+        " ": 1
+      }
+    }
+  ]
+}
